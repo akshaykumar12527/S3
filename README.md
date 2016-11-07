@@ -1,8 +1,10 @@
-go get github.com/hiteshjoshi/s3
+```sh
+go get github.com/akshaykumar12527/s3
+```
 
-
+```go
 import (
-"github.com/hiteshjoshi/s3"
+"github.com/akshaykumar12527/s3"
 )
 
 //using it
@@ -16,3 +18,4 @@ import (
 	amazonS3.Upload(keyFilename, bucketName, filename)
 	var data []byte
 	data = amazonS3.Download(keyfilename,bucketName)
+```
