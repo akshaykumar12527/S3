@@ -158,12 +158,14 @@ func (c *Client) Upload(key, bucket string, data []byte) (fileUrl string, err er
 	httpClient := &http.Client{}
 	res, err := httpClient.Do(req)
 	if err != nil {
+		fmt.Println(err)
 		return "", err
 	}
 	defer res.Body.Close()
 	_, readErr := ioutil.ReadAll(res.Body)
 
 	if readErr != nil {
+		fmt.Println(readErr)
 		return "", readErr
 	}
 	full := fmt.Sprintf("%s", url)
