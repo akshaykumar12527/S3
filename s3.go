@@ -138,7 +138,7 @@ func (c *Client) ListBucket(bucket string) (result *ListBucketResults, err error
 //	Bucket name
 //	data file
 //	Return full file url if succeeded
-func (c *Client) Upload(key, bucket string, data []byte) (fileUrl string, err error) {
+func (c *Client) Upload(key, bucket string, data []byte, ACL string) (fileUrl string, err error) {
 	if data == nil {
 		var errorEmptyData = errors.New("data cannot be null")
 		return "", errorEmptyData
@@ -148,6 +148,7 @@ func (c *Client) Upload(key, bucket string, data []byte) (fileUrl string, err er
 	req.Header.Set("Date", time.Now().UTC().Format(http.TimeFormat))
 	ext := path.Ext(key)
 	mimeType := mime.TypeByExtension(ext)
+	req.Header.Set("x-amz-acl", ACL)
 	req.Header.Set("Content-Type", mimeType)
 	req.Header.Set("Cache-Control", "max-age=94608000")
 	req.Header.Set("x-amz-meta-Cache-Control", "max-age=94608000")
