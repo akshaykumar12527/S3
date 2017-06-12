@@ -1,10 +1,10 @@
 ```sh
-go get github.com/Abhishek-Nagarkoti/s3
+go get github.com/akshaykumar12527/s3
 ```
 
 ```go
 import (
-"github.com/Abhishek-Nagarkoti/s3"
+"github.com/akshaykumar12527/s3"
 )
 
 //using it
